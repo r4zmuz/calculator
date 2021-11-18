@@ -144,7 +144,7 @@ class HomePageState extends State<HomePage>{
                      ),
                    MaterialButton(
                      onPressed: kustutamine, // anname nupu vajutusel funktsiooni
-                     child: Text("Tühjenda"),
+                     child: Text("C"),
                      color: Colors.red,
                      ),
                     ], 
