@@ -3,7 +3,7 @@ import 'home_page.dart';
 void main() => runApp (new MyApp());
 
 class MyApp extends StatelessWidget {
-  @override 
+@override 
   Widget build (BuildContext context){
     return  MaterialApp(
       title: "Kalkulaator",

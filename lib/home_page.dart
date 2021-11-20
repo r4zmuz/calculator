@@ -1,8 +1,7 @@
-
-
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_calculator/konverter.dart';
 
 class HomePage extends StatefulWidget{
   @override 
@@ -12,6 +11,7 @@ class HomePage extends StatefulWidget{
 class HomePageState extends State<HomePage>{
 
   num num1 = 0, num2 = 0, sum = 0;
+  var tulemusX = "";
 
   final TextEditingController sisend1 = TextEditingController(); //loome controlleri, et saaks sisestatud numbri katte, vaikevaartusega 0
   final TextEditingController sisend2 = TextEditingController(); //loome controlleri, et saaks sisestatud numbri katte, vaikevaartusega 0
@@ -21,6 +21,7 @@ class HomePageState extends State<HomePage>{
       num1 = int.parse(sisend1.text); //votame sisendid
       num2 = int.parse(sisend2.text); // votame sisendid
       sum= num1 + num2;
+      tulemusX = "Tulemus: " + sum.toString();
     });
   }
 
@@ -29,6 +30,7 @@ class HomePageState extends State<HomePage>{
       num1 = int.parse(sisend1.text); //votame sisendid
       num2 = int.parse(sisend2.text); // votame sisendid
       sum= num1 - num2;
+      tulemusX = "Tulemus: " + sum.toString();
     });
   }
 
@@ -37,6 +39,7 @@ class HomePageState extends State<HomePage>{
       num1 = int.parse(sisend1.text); //votame sisendid
       num2 = int.parse(sisend2.text); // votame sisendid
       sum= num1 * num2;
+      tulemusX = "Tulemus: " + sum.toString();
     });
   }
 
@@ -45,6 +48,7 @@ class HomePageState extends State<HomePage>{
       num1 = int.parse(sisend1.text); //votame sisendid
       num2 = int.parse(sisend2.text); // votame sisendid
       sum= num1 ~/ num2; // konverteerin double tekkiva vaartuse int-ks ~ abil
+      tulemusX = "Tulemus: " + sum.toString();
     });
   }
   void power(){
@@ -52,6 +56,7 @@ class HomePageState extends State<HomePage>{
      num1 = int.parse(sisend1.text); //votame sisendid
       num2 = int.parse(sisend2.text); // votame sisendid
       sum= pow(num1, num2);
+      tulemusX = "Tulemus: " + sum.toString();
     });
   }
 
@@ -62,8 +67,10 @@ class HomePageState extends State<HomePage>{
       sum= 0; 
       sisend1.text = "";
       sisend2.text = "";
+      tulemusX = "";
     });
   }
+
 
   @override 
   Widget build(BuildContext context) {
@@ -76,7 +83,7 @@ class HomePageState extends State<HomePage>{
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: <Widget> [
-              Text("Tulemus: $sum",
+              Text("$tulemusX",
               style: TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold,
@@ -148,7 +155,23 @@ class HomePageState extends State<HomePage>{
                      color: Colors.red,
                      ),
                     ], 
-                )
+                ),
+                Padding(padding: const EdgeInsets.only(top: 20.0)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    MaterialButton(
+                     onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ConverterPage()),
+                      );
+                    }, // anname nupu vajutusel funktsiooni
+                     child: Text("Konverteerimine"),
+                     color: Colors.lightGreen,
+                     ),
+                  ],
+                ),
             ],
           ),
         ),
