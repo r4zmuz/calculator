@@ -31,6 +31,15 @@ void miil(){
   });
 }
 
+void tyhjendamine(){ // tekitame funktsiooni, mis nullib koik vaartused.
+    setState(() {
+      kNum = 0;  
+      kSum= 0; 
+      kSisend.text = "";
+      tulemus = "";
+    });
+  }
+
  @override 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,6 +78,17 @@ void miil(){
                      onPressed: kilomeeter, // anname nupu vajutusel funktsiooni
                      child: Text("kilomeetriteks"),
                      color: Colors.lightBlue.shade300,
+                     ),
+            ],
+          ),
+          Padding(padding: EdgeInsets.only(top: 20.0)),
+          Row(
+             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              MaterialButton(
+                     onPressed: tyhjendamine, // anname nupu vajutusel funktsiooni
+                     child: Text("Tühjendamine"),
+                     color: Colors.red,
                      ),
             ],
           ),
