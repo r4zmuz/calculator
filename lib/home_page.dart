@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_calculator/konverter.dart';
+import 'package:flutter_calculator/history.dart';
 
 class HomePage extends StatefulWidget{
   @override 
@@ -169,6 +170,22 @@ class HomePageState extends State<HomePage>{
                     }, // anname nupu vajutusel funktsiooni
                      child: Text("Konverteerimine"),
                      color: Colors.lightGreen,
+                     ),
+                  ],
+                ),
+                Padding(padding: const EdgeInsets.only(top: 20.0)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    MaterialButton(
+                     onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HistoryPage()),
+                      );
+                    }, // anname nupu vajutusel funktsiooni
+                     child: Text("Ajalugu"),
+                     color: Colors.blueGrey,
                      ),
                   ],
                 ),
