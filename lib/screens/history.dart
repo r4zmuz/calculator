@@ -13,11 +13,7 @@ class HistoryPageState extends State<HistoryPage>{
   final Stream<QuerySnapshot> history =
   FirebaseFirestore.instance.collection('calculation').snapshots();
 
-  void uuenda(){
-    setState(() {
-      (context as Element).reassemble();
-    });
-  }
+
 
  @override 
   Widget build(BuildContext context) {
